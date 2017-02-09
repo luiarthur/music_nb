@@ -13,7 +13,21 @@ def parseFile(path):
 # Test:
 
 s = parseFile("../test/sample_abs.txt")
-re.findall("(?<=music {)[^;]+(?=;)", s)
+template = parseFile("template.txt")
+x = re.findall("(?<=music {)[^;]+(?=;)", s)
 
-re.findall("music {[^;]+;", s)
-re.findall("};", s)
+div = [ re.sub("ID", str(i), "<div id='music-ID'></div>") \
+        for i in xrange(len(x)) ]
+
+js = [ "ABCJS.renderABC('music-" +str(i)+ "','" +str(x[i])+ "');" \
+       for i in xrange(len(x)) ]
+
+js_all = "".join(js)
+
+content = s
+i = 0
+while 
+re.findall("(?<=music {)[^;]+(?=;)", content)
+
+
+re.sub("%js_all", js_all, template)
