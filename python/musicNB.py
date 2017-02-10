@@ -61,6 +61,7 @@ if __name__ == '__main__':
 
     else:
         os.mkdir(HTML_DIR)
+        shutil.copyfile(MUSICNB_HOME + "html/index.html", HTML_DIR + "index.html")
 
         for d in ["css/","js/"]:
             os.mkdir(HTML_DIR + d)
