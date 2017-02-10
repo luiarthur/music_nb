@@ -9,8 +9,7 @@ from watchdog.events import PatternMatchingEventHandler
 import SimpleHTTPServer
 import SocketServer
 
-from musify import musify
-
+import Musify
 
 MUSICNB_HOME = os.environ["MUSICNB_HOME"]
 HTML_DIR = ".html/"
@@ -37,7 +36,10 @@ class MusicNBHandler(PatternMatchingEventHandler):
     #    self.process(event)
 
     def on_created(self, event):
-        #shutil.copyfile()
+        f = os.path.basename(event.src_path)
+        f_base = os.path.splitext(f)[0]
+        Musify.musify(event.src_path, HTML_DIR + f_base + ".html")
+        #shutil.copyfile(event.src_path, HTML_DIR + f)
         self.process(event)
 
 
@@ -56,6 +58,11 @@ if __name__ == '__main__':
 
             for f in os.listdir(MUSICNB_HOME + d):
                 shutil.copyfile(MUSICNB_HOME + d + f, HTML_DIR + d + f)
+
+        for nb in os.listdir("_notes/"):
+            f = os.path.basename(nb)
+            f_base = os.path.splitext(f)[0]
+            Musify.musify(nb, HTML_DIR + f_base + ".html")
 
         print "Created '.html/'"
 
