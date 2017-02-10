@@ -5,6 +5,11 @@ a music notebook
 This project provides a notebook for musicians who are familiar with scripting.
 It makes use of [abcjs][1]
 
+# System Requirements
+- python >= 2.7 
+    - watchdog
+      - install through `pip install watchdog`
+- OS: Linux, Mac
 
 # Installation
 
