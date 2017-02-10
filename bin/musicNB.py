@@ -77,6 +77,7 @@ if __name__ == '__main__':
         os.mkdir(HTML_DIR)
         os.mkdir(HTML_DIR + "notes/")
         shutil.copyfile(MUSICNB_HOME + "html/index.html", HTML_DIR + "index.html")
+        shutil.copyfile(MUSICNB_HOME + "misc/exclude", ".gitignore")
 
         for d in ["css/","js/"]:
             os.mkdir(HTML_DIR + d)
