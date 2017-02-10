@@ -43,7 +43,12 @@ class MusicNBHandler(PatternMatchingEventHandler):
         f = os.path.basename(event.src_path)
         f_base = os.path.splitext(f)[0]
         Musify.musify(event.src_path, HTML_DIR + f_base + ".html")
-        #shutil.copyfile(event.src_path, HTML_DIR + f)
+        self.process(event)
+
+    def on_deleted(self, event):
+        f = os.path.basename(event.src_path)
+        f_base = os.path.splitext(f)[0]
+        os.remove(HTML_DIR + f_base + ".html")
         self.process(event)
 
 
@@ -63,10 +68,18 @@ if __name__ == '__main__':
             for f in os.listdir(MUSICNB_HOME + d):
                 shutil.copyfile(MUSICNB_HOME + d + f, HTML_DIR + d + f)
 
-        for nb in os.listdir("_notes/"):
-            f = os.path.basename(nb)
-            f_base = os.path.splitext(f)[0]
-            Musify.musify("_notes/" + nb, HTML_DIR + f_base + ".html")
+        if os.path.exists("_notes/"):
+
+            for nb in os.listdir("_notes/"):
+                f = os.path.basename(nb)
+                f_base = os.path.splitext(f)[0]
+                Musify.musify("_notes/" + nb, HTML_DIR + f_base + ".html")
+
+        else:
+            os.mkdir("_notes/")
+            shutil.copyfile(MUSICNB_HOME + "_notes/sample_abc.mnb", \
+                            HTML_DIR + "_notes/sample_abc.mnb")
+
 
         print "Created '.html/'"
 

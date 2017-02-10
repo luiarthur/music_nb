@@ -1,14 +1,4 @@
-# This is my Test
-
-Some boring text.  Some boring text.  Some boring text.  Some boring text. 
-Some boring text.  Some boring text.  Some boring text.  Some boring text. 
-Some boring text.  Some boring text.  Some boring text.  Some boring text. 
-Some boring text.  Some boring text.  Some boring text.  Some boring text. 
-Some boring text.  Some boring text.  Some boring text.  Some boring text. 
-Some boring text.  Some boring text.  Some boring text.  Some boring text. 
-Some boring text.  Some boring text.  Some boring text.  Some boring text. 
-
-## Here's something
+# This is level 1 a Header
 
 music {
 T:Speed the Plough
@@ -16,7 +6,7 @@ T:Speed the Plough
 GABc dedB|dedB dedB|c2ec B2dB|A2F2 G4:|
 };
 
-### Here's another title
+## Here is a level 2 Header
 
 music {
 X:1
@@ -30,6 +20,4 @@ GABc dedB|dedB dedB|c2ec B2dB|A2F2 G4:|
 g2gf g2Bd|g2f2 e2d2|c2ec B2dB|A2F2 G4:|
 };
 
-This is boring...
-
-Bla
+More text...
