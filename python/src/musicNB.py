@@ -2,6 +2,8 @@
 
 import time 
 import sys, os, shutil
+
+# Watchdog for tracking file changes
 from watchdog.observers import Observer  
 from watchdog.events import PatternMatchingEventHandler
 
@@ -9,11 +11,13 @@ from watchdog.events import PatternMatchingEventHandler
 import SimpleHTTPServer
 import SocketServer
 
+# Musify
 import Musify
 
 MUSICNB_HOME = os.environ["MUSICNB_HOME"]
 HTML_DIR = ".html/"
 
+# SimpleHTTPServer
 PORT = 2357
 Handler = SimpleHTTPServer.SimpleHTTPRequestHandler
 httpd = SocketServer.TCPServer(("", PORT), Handler)
@@ -62,7 +66,7 @@ if __name__ == '__main__':
         for nb in os.listdir("_notes/"):
             f = os.path.basename(nb)
             f_base = os.path.splitext(f)[0]
-            Musify.musify(nb, HTML_DIR + f_base + ".html")
+            Musify.musify("_notes/" + nb, HTML_DIR + f_base + ".html")
 
         print "Created '.html/'"
 
