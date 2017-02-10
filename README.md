@@ -3,8 +3,8 @@ a music notebook
 
 # Installation
 
-1. clone the repo
-2. in `bashrc`, 
+1. Clone the repository
+2. Add these lines to `bashrc`, 
 
 ```bash
 export MUSICNB_HOME=path/to/music_nb/
