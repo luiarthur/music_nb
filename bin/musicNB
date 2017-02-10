@@ -2,4 +2,4 @@
 
 musicNB.py &
 sleep 2
-cd .html; python -m SimpleHTTPServer 2357 &
+cd .html; python -m SimpleHTTPServer 7777

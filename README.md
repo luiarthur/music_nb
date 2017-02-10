@@ -7,6 +7,6 @@ a music notebook
 2. Add these lines to `bashrc`, 
 
 ```bash
-export MUSICNB_HOME=path/to/music_nb
+export MUSICNB_HOME=path/to/music_nb/
 export PATH=$MUSICNB_HOME/bin:$PATH
 ```
