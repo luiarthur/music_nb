@@ -15,6 +15,15 @@ def writeFile(path, contents):
     f.write(r'' + contents)
     f.close()
 
+def subBold(s):
+    print "HERE!!!"
+    m = re.findall("\*\*[^(**)]+\*\*", s)
+
+    for i in xrange(len(m)):
+        inner = m[i][2:len(m[i])-2]
+        s = s.replace(m[i], "<b>" + inner + "</b>")
+
+    return s
 
 def musify(readPath, writePath):
 
@@ -51,6 +60,7 @@ def musify(readPath, writePath):
         h_close_tag = "</h" + str(h_level) + "><br>"
         html = html.replace(h, h_open_tag + h.replace("#","") + h_close_tag)
 
+    html = subBold(html)
     html = re.sub("\n\n\n+", "\n<br><br>\n", html)
 
     writeFile(writePath, html)
