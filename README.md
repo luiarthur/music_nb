@@ -25,7 +25,7 @@ export PATH=$MUSICNB_HOME/bin:$PATH
 
 1. In a terminal, create a new directory, say `notes`
 2. In the new directory, enter the command `musicNB`
-    - This will generate a `_notes` directory and a hidden `.html` directory
+    - This will generate a `notes` directory and a hidden `.html` directory
       if they don't already exist. 
     - A server will also be started at port 7777.
     - In a web browser, go to `localhost:7777` and you should see a sample file [sample_abc.mnb][2]. (`mnb` is the file extension for your notebooks.)
@@ -36,7 +36,7 @@ export PATH=$MUSICNB_HOME/bin:$PATH
 
 
 [1]: https://abcjs.net/#what)
-[2]: _notes/sample_abc.mnb
+[2]: notes/sample_abc.mnb
 [3]: http://www.lesession.co.uk/abc/abc_notation.htm
 [4]: misc/sample.jpg
 
