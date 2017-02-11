@@ -48,8 +48,9 @@ def musify(readPath, writePath):
         h = headers[i]
         h_level = h.count("#")
         h_open_tag = "\n<h" + str(h_level) + ">"
-        h_close_tag = "</h" + str(h_level) + ">"
-        html = html.replace(h, h_open_tag +h.replace("#","")+ h_close_tag)
-        html = re.sub("\n\n\n+", "<br><br>", html)
+        h_close_tag = "</h" + str(h_level) + "><br>"
+        html = html.replace(h, h_open_tag + h.replace("#","") + h_close_tag)
+
+    html = re.sub("\n\n\n+", "\n<br><br>\n", html)
 
     writeFile(writePath, html)
