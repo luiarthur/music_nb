@@ -23,11 +23,11 @@ def genNotesList():
         f = os.path.splitext(base)[0] 
         return "<li><a href='notes/" + x + "'>" + f + "</a></li>"
 
-    notes = filter(lambda x: ".html" in x, os.listdir(".html/notes/"))
+    notes = filter(lambda x: ".html" in x, os.listdir(HTML_DIR + "notes/"))
     n_ls = map(to_li, notes)
     notes_ul =  "".join(n_ls)
 
-    index_html = Musify.readFile(".html/index.html")
+    index_html = Musify.readFile(HTML_DIR + "index.html")
 
     pattern = "(?<=<ul id='notes_list'>)(?s).+(?=</ul>)"
     new_index_html = re.sub(pattern, notes_ul, index_html)
@@ -85,17 +85,17 @@ if __name__ == '__main__':
             for f in os.listdir(MUSICNB_HOME + d):
                 shutil.copyfile(MUSICNB_HOME + d + f, HTML_DIR + d + f)
 
-        if os.path.exists("_notes/"):
+        if os.path.exists("notes/"):
 
-            for nb in os.listdir("_notes/"):
+            for nb in os.listdir("notes/"):
                 f = os.path.basename(nb)
                 f_base = os.path.splitext(f)[0]
-                Musify.musify("_notes/" + nb, HTML_DIR + "notes/" + f_base + ".html")
+                Musify.musify("notes/" + nb, HTML_DIR + "notes/" + f_base + ".html")
 
         else:
-            os.mkdir("_notes/")
-            shutil.copyfile(MUSICNB_HOME + "_notes/sample_abc.mnb", \
-                            HTML_DIR + "_notes/sample_abc.mnb")
+            os.mkdir("notes/")
+            shutil.copyfile(MUSICNB_HOME + "notes/sample_abc.mnb", \
+                            HTML_DIR + "notes/sample_abc.mnb")
 
         genNotesList()
 
