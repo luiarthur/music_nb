@@ -50,5 +50,6 @@ def musify(readPath, writePath):
         h_open_tag = "\n<h" + str(h_level) + ">"
         h_close_tag = "</h" + str(h_level) + ">"
         html = html.replace(h, h_open_tag +h.replace("#","")+ h_close_tag)
+        html = html.replace("\n\n\n", "<br><br>")
 
     writeFile(writePath, html)
