@@ -85,17 +85,16 @@ if __name__ == '__main__':
             for f in os.listdir(MUSICNB_HOME + d):
                 shutil.copyfile(MUSICNB_HOME + d + f, HTML_DIR + d + f)
 
-        if os.path.exists("notes/"):
-
-            for nb in os.listdir("notes/"):
-                f = os.path.basename(nb)
-                f_base = os.path.splitext(f)[0]
-                Musify.musify("notes/" + nb, HTML_DIR + "notes/" + f_base + ".html")
-
-        else:
+        if not os.path.exists("notes/"):
             os.mkdir("notes/")
             shutil.copyfile(MUSICNB_HOME + "notes/sample_abc.mnb", \
-                            HTML_DIR + "notes/sample_abc.mnb")
+                            "notes/sample_abc.mnb")
+
+        for nb in os.listdir("notes/"):
+            f = os.path.basename(nb)
+            f_base = os.path.splitext(f)[0]
+            Musify.musify("notes/" + nb, HTML_DIR + "notes/" + f_base + ".html")
+
 
         genNotesList()
 
