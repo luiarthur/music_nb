@@ -16,7 +16,6 @@ def writeFile(path, contents):
     f.close()
 
 def subBold(s):
-    print "HERE!!!"
     m = re.findall("\*\*[^(**)]+\*\*", s)
 
     for i in xrange(len(m)):
